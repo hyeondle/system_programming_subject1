@@ -6,7 +6,7 @@
 #    By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 17:18:24 by hyeondle          #+#    #+#              #
-#    Updated: 2023/11/02 22:10:49 by Linsio           ###   ########.fr        #
+#    Updated: 2023/11/03 00:32:16 by Linsio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ OBJS	= ${SRCS:.c=.o}
 INCD	= ./
 
 GCC		= cc
-CFLAG	= -Wall -Wextra -Werror
+CFLAG	=
 LIB		= ar rcs
 
 RM		= rm -f
