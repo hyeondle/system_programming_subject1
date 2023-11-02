@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:37:36 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/02 22:14:34 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:26:15 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ void	make_line_table(t_setting *set)
 	j = 0;
 	while ((ch = fgetc(file)) != EOF)
 	{
-		printf("char : %c\n", ch);
 		if (ch == '\n')
 		{
 			set->line_table[i] = j;
