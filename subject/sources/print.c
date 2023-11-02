@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 22:45:20 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/03 00:24:49 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/03 00:26:11 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	print_line(t_setting *set, int index, int flag)
 {
 	FILE	*file;
 	int		offset;
-	char	c;
+	int		c;
 
 	if (index < 0 || index > set->line)
 	{
@@ -79,7 +79,7 @@ static void	print_line(t_setting *set, int index, int flag)
 		c = fgetc(file);
 		while (c != EOF)
 		{
-			ft_putchar_fd(c, STDOUT_FILENO);
+			ft_putchar_fd((char)c, STDOUT_FILENO);
 			c = fgetc(file);
 		}
 		ft_putchar_fd('\n', STDOUT_FILENO);
