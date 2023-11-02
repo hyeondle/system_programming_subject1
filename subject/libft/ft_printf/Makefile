@@ -6,7 +6,7 @@
 #    By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 17:18:24 by hyeondle          #+#    #+#              #
-#    Updated: 2023/11/02 22:10:57 by Linsio           ###   ########.fr        #
+#    Updated: 2023/11/03 00:32:20 by Linsio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS	=	ft_printf.c\
 INCD	= ./
 
 GCC		= cc
-CFLAG	= -Wall -Wextra -Werror
+CFLAG	=
 LIB		= ar rcs
 
 OBJS	= ${SRCS:.c=.o}

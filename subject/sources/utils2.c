@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 22:37:36 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/03 00:30:29 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/03 00:31:40 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ static void make_line_table_sum(t_setting *set)
 void	make_line_table(t_setting *set)
 {
 	FILE	*file;
-	int		ch;
+	char	ch;
 	int		i, j;
 
 	file  = fopen(set->file_name, "r");
@@ -143,7 +143,7 @@ void	make_line_table(t_setting *set)
 int	count_file_lines(char *name)
 {
 	FILE	*file = fopen(name, "r");
-	int		ch;
+	char	ch;
 	int		line;
 
 	if (!file)

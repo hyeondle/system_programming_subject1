@@ -6,7 +6,7 @@
 #    By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 23:37:20 by Linsio            #+#    #+#              #
-#    Updated: 2023/11/02 23:43:29 by Linsio           ###   ########.fr        #
+#    Updated: 2023/11/03 00:31:58 by Linsio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ LIBFT		=	$(LIBFT_DIR)libft.a
 LIBFT_FLAG	=	-L$(LIBFT_DIR) -lft
 
 CC			=	cc
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=
 RM			=	rm -f
 RM_OBJECT	=	rm -rf $(OBJECT)
 

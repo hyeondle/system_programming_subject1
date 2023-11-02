@@ -6,7 +6,7 @@
 #    By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 16:19:46 by hyeondle          #+#    #+#              #
-#    Updated: 2023/11/02 22:11:44 by Linsio           ###   ########.fr        #
+#    Updated: 2023/11/03 00:32:28 by Linsio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,11 @@ NAME	= libftgetnextline.a
 
 SRCS	=	get_next_line.c\
 			get_next_line_utils.c\
-			
+
 INCD	= ./
 
 GCC		= cc
-CFLAG	= -Wall -Wextra -Werror
+CFLAG	=
 LIB		= ar rcs
 
 OBJS	= ${SRCS:.c=.o}
