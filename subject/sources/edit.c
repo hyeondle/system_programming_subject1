@@ -6,28 +6,35 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:37:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/02 22:15:01 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:57:02 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/myeditor.h"
+#include <string.h>
 
 void do_swap_line(t_setting *set, char *tab)
 {
     FILE *file, *temp;
     int current_line, index1, index2;
-    char buf[1024], *line1 = NULL, *line2 = NULL;
+    char buf[1024], *line1 = NULL, *line2 = NULL, *temp_line;
 
     index1 = index_check(tab);
-    if (index1 == -2)
+    if (index1 < 0 || index1 > set->line)
+	{
+		printf("invalid range\n");
         return ;
-
+	}
     scanf("%d", &index2);
     index2--;
 
     if (index1 == index2)
         return ;
-
+	if (index2 > set->line || index2 < 1)
+	{
+		printf("invalid range\n");
+		return ;
+	}
     file = fopen(set->file_name, "r");
     if (file == NULL)
 	{
@@ -52,6 +59,20 @@ void do_swap_line(t_setting *set, char *tab)
             line2 = ft_strdup(buf);
         current_line++;
     }
+	if (index1 == set->line)
+	{
+		temp_line = ft_strjoin(line1, "\n");
+		free(line1);
+		line1 = temp_line;
+		line2[strcspn(line2, "\n")] = '\0';
+	}
+	else if (index2 == set->line)
+	{
+		temp_line = ft_strjoin(line2, "\n");
+		free(line2);
+		line2 = temp_line;
+		line1[strcspn(line1, "\n")] = '\0';
+	}
     rewind(file);
     current_line = 0;
     while (fgets(buf, sizeof(buf), file) != NULL)
@@ -86,7 +107,7 @@ void	do_del_line(t_setting *set, char *tab)
 	char	buf[1024];
 
 	index = index_check(tab);
-	if (index == -1)
+	if (index < 0)
 		return ;
 	file = fopen(set->file_name, "r");
 	if (file == NULL)
@@ -129,7 +150,7 @@ void	do_add_line(t_setting *set, char *tab)
 	size_t	len;
 
 	index = index_check(tab);
-	if (index == -2)
+	if (index < -1)
 		return ;
 	file = fopen(set->file_name, "r");
 	if (file == NULL)

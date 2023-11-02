@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:56:58 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/02 22:14:39 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:50:38 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	index_check(char *tab)
 	if (!digit_check(tab))
 	{
 		printf("unvalid input\n");
-		return (-1);
+		return (-2);
 	}
 	return (ft_atoi(tab) - 1);
 }
