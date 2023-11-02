@@ -6,11 +6,12 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:45:20 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/02 22:14:42 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:30:10 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/myeditor.h"
+#include <unistd.h>
 
 static t_printmode	check_print_mode(char *str)
 {
@@ -79,6 +80,7 @@ static void	print_line(t_setting *set, int index, int flag)
 		{
 			ft_putchar_fd(c, STDOUT_FILENO);
 		}
+		ft_putchar_fd('\n', STDOUT_FILENO);
 	}
 	else
 	{

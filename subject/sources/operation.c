@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:40:27 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/02 22:14:46 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:29:03 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void execute(char **tab, int order, t_setting *set)
 		set->exit = TRUE;
 	else
 	{
-		printf("undefined behavior\n");
 		return ;
 	}
 }

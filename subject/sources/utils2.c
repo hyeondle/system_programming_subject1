@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:37:36 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/02 22:26:15 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/02 23:42:15 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,20 @@ void	remake_line_table_add_line(t_setting *set, int index)
 		perror("malloc error");
 		exit(1);
 	}
+	index++;
+	if (index > set->line)
+		index = set->line;
 	for (int i = 0; i < index; i++)
 	{
 		table[i] = set->line_table[i];
 		table_sum[i] = set->line_table_sum[i];
 	}
 	table[index] = set->added_length;
-	table[index] = set->added_length + set->line_table_sum[index];
+	table_sum[index] = set->added_length + set->line_table_sum[index - 1];
 	for (int i = index; i <= set->line; i++)
 	{
 		table[i + 1] = set->line_table[i];
-		table_sum[i + 1] = (set->line_table_sum[i] + set->line_table[index]);
+		table_sum[i + 1] = table_sum[i] + set->line_table[i];
 	}
 	set->line++;
 	free(set->line_table);
