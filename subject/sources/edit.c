@@ -6,59 +6,58 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 22:37:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/11/02 23:43:33 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/11/03 00:28:53 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/myeditor.h"
-#include <string.h>
 
 void do_swap_line(t_setting *set, char *tab)
 {
-    FILE *file, *temp;
-    int current_line, index1, index2;
-    char buf[1024], *line1 = NULL, *line2 = NULL, *temp_line;
+	FILE *file, *temp;
+	int current_line, index1, index2;
+	char buf[1024], *line1 = NULL, *line2 = NULL, *temp_line;
 
-    index1 = index_check(tab);
-    if (index1 < 0 || index1 > set->line)
+	index1 = index_check(tab);
+	if (index1 < 0 || index1 > set->line)
 	{
 		printf("invalid range\n");
-        return ;
+		return ;
 	}
-    scanf("%d", &index2);
-    index2--;
+	scanf("%d", &index2);
+	index2--;
 
-    if (index1 == index2)
-        return ;
+	if (index1 == index2)
+		return ;
 	if (index2 > set->line || index2 < 1)
 	{
 		printf("invalid range\n");
 		return ;
 	}
-    file = fopen(set->file_name, "r");
-    if (file == NULL)
+	file = fopen(set->file_name, "r");
+	if (file == NULL)
 	{
-        perror("Error opening file");
-        return ;
-    }
+		perror("Error opening file");
+		return ;
+	}
 
-    temp = fopen("temp.txt", "w");
-    if (temp == NULL)
+	temp = fopen("temp.txt", "w");
+	if (temp == NULL)
 	{
-        perror("Error opening temp file");
-        fclose(file);
-        return ;
-    }
+		perror("Error opening temp file");
+		fclose(file);
+		return ;
+	}
 
-    current_line = 0;
-    while (fgets(buf, sizeof(buf), file) != NULL)
+	current_line = 0;
+	while (fgets(buf, sizeof(buf), file) != NULL)
 	{
-        if (current_line == index1)
-            line1 = ft_strdup(buf);
-        else if (current_line == index2)
-            line2 = ft_strdup(buf);
-        current_line++;
-    }
+		if (current_line == index1)
+			line1 = ft_strdup(buf);
+		else if (current_line == index2)
+			line2 = ft_strdup(buf);
+		current_line++;
+	}
 	if (index1 == set->line)
 	{
 		temp_line = ft_strjoin(line1, "\n");
@@ -73,31 +72,31 @@ void do_swap_line(t_setting *set, char *tab)
 		line2 = temp_line;
 		line1[strcspn(line1, "\n")] = '\0';
 	}
-    rewind(file);
-    current_line = 0;
-    while (fgets(buf, sizeof(buf), file) != NULL)
+	rewind(file);
+	current_line = 0;
+	while (fgets(buf, sizeof(buf), file) != NULL)
 	{
-        if (current_line == index1)
-            fputs(line2, temp);
-        else if (current_line == index2)
-            fputs(line1, temp);
-        else
-            fputs(buf, temp);
-        current_line++;
-    }
-    fclose(file);
-    fclose(temp);
+		if (current_line == index1)
+			fputs(line2, temp);
+		else if (current_line == index2)
+			fputs(line1, temp);
+		else
+			fputs(buf, temp);
+		current_line++;
+	}
+	fclose(file);
+	fclose(temp);
 
 
-    free(line1);
-    free(line2);
+	free(line1);
+	free(line2);
 	line1 = NULL;
 	line2 = NULL;
 
-    remove(set->file_name);
-    rename("temp.txt", set->file_name);
+	remove(set->file_name);
+	rename("temp.txt", set->file_name);
 
-    swap_line_table(set, index1, index2);
+	swap_line_table(set, index1, index2);
 }
 
 void	do_del_line(t_setting *set, char *tab)
